@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+td {
+color:black;
+font-size:120px;
+}
+
+.dte {
+color:white;
+font-size:85px;
+text-align:center;
+}
+
+.time {
+color:white;
+margin-left: 250px;
+}
+
+</style>
+
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+	var fdate = today.toTimeString();
+	var d = today.toDateString();
+    var fd = d.substr(0, 3);
+    var fm = d.substr(3, 12);
+    m = checkTime(m);
+    s = checkTime(s);
+    h = checkTime(h);
+	
+    if (h => 24) {
+        hh = h-24;
+    }
+    if (h < 24) {
+        hh = h;
+    }
+	document.getElementById('tdate').innerHTML =  fd + "," + fm;
+	document.getElementById('phoenix').innerHTML = fdate.substring(0, 8);
+	document.getElementById('seattle').innerHTML = fdate.substring(0, 8);
+
+//	** Ashburn Time **
+	var h = today.getHours()+3;
+	if (h => 24) {
+        hh = h-24;
+	hh = checkTime(hh);
+    }
+    if (h < 24) {
+	h = checkTime(h);
+        hh = h;
+	}
+	document.getElementById('ashburn').innerHTML = hh + ":" + m + ":" + s;
+	
+//	** Amsterdam Time **
+	var h = today.getHours()+9;
+	if (h => 24) {
+        hh = h-24;
+	hh = checkTime(hh);
+    }
+    if (h < 24) {
+	h = checkTime(h);
+        hh = h;
+	}	
+	document.getElementById('amsterdam').innerHTML = hh + ":" + m + ":" + s;
+	
+//	** Singapore Time **
+	var h = today.getHours()+15;
+	if (h => 24) {
+        hh = h-24;
+	hh = checkTime(hh);
+    }
+    if (h < 24) {
+	h = checkTime(h);
+        hh = h;
+	}
+	document.getElementById('singapore').innerHTML = hh + ":" + m + ":" + s;
+
+//      ** UK Time **
+        var h = today.getHours()+8;
+        if (h => 24) {
+        hh = h-24;
+        hh = checkTime(hh);
+    }
+    if (h < 24) {
+        h = checkTime(h);
+        hh = h;
+        }
+        document.getElementById('UK').innerHTML = hh + ":" + m + ":" + s;
+
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body bgcolor="black"  onload="startTime()">
+
+<p>
+	<div class = dte id="tdate"></div>
+<p>
+	<body>
+      <table border = "2" cellpadding = "5" cellspacing = "5" width = "100%">
+
+         <tbody>
+            <tr bgcolor = "#3cb371">
+               <td>Phoenix</td>
+               <td width = "50%" ><div class=time id="phoenix"></div></td>
+            </tr>
+	    <tr bgcolor = "#ffa500">
+               <td>Seattle</td>
+               <td><div class=time id="seattle"></div></td>
+            </tr>
+	    <tr bgcolor = "#3cb371">
+               <td>Ashburn</td>
+               <td><div class=time id="ashburn"></div> </td>
+            </tr>
+            <tr bgcolor = "#ffa500">
+               <td>United Kingdom</td>
+               <td><div class=time id="UK"></div> </td>
+            </tr>
+	    <tr bgcolor = "#3cb371">
+               <td>Amsterdam</td>
+               <td><div class=time id="amsterdam"></div></td>
+            </tr>
+	    <tr bgcolor = "#ffa500">
+               <td>Singapore</td>
+               <td><div class=time id="singapore"></div></td>
+            </tr>
+				
+         </tbody>
+         
+      </table>
+	</body>
+</body>
+</html>
