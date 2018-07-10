@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-color:black;
+margin-top: 0;
+margin-bottom: 0;
+margin-right: 0;
+margin-left: 0;
+}
+#wrapperV {
+display:none;
+}
+#wrapperH {
+display:none;
+}
+
+@media screen and (max-width:1920px){
+#wrapperH {
+display:block;
+}
+#wrapperV {
+display:none;
+}
+@media screen and (max-width:1080px){
+#wrapperV {
+display:block;
+}
+#wrapperH {
+display:none;
+}
+</style>
+<title>Resizing Page</title>
+</head>
+<body>
+<div id="wrapperH" ><iframe frameborder="0" width="100%" height="942" scrolling="no"src="/dashboard/horizontal/"></iframe></div>
+<div id="wrapperV" ><iframe frameborder="0" width="100%" height="1780" scrolling="no"src="/dashboard/vertical/"></iframe></div>
+</body>
+</html>
