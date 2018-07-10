@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>OMSA Commands</title>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+</head>
+<style>
+    body {
+	margin: auto;
+    background: black;
+    font-color: white;
+}
+h1 {
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: none;
+    width: 100%;
+	table-layout:fixed;
+}
+input {
+  width: 200px;
+  color: orange;
+  padding-right: 10px;
+  background-color: black;
+  border: none;
+}
+
+/*Copy Button Start*/
+
+.OrangeBtn {
+    background-color: orange; 
+    color: black; 
+    border: 2px solid orange;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-color: green;
+    border-radius: 100%;
+    margin-top: -15px;
+    margin-left: 50px;
+}
+
+.OrangeBtn:hover {
+    background-color: green;
+    color: white;
+    border: 2px solid green;
+
+}
+.GreenBtn {
+    background-color: green; 
+    color: white; 
+    border: 2px solid green;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 100%;
+    margin-left: 50px;
+    margin-top: -15px;
+}
+
+.GreenBtn:hover {
+    background-color: orange;
+    color: black;
+    border: 2px solid orange;
+
+}
+
+
+/*Copy Button End*/
+
+
+
+</style>
+<body>
+<!--CLICK TO COPY JAVASCRIPT START-->
+<script>
+
+(function() {
+
+  'use strict';
+
+  // click events
+  document.body.addEventListener('click', copy, true);
+
+  // event handler
+  function copy(e) {
+
+    // find target element
+    var
+      t = e.target,
+      c = t.dataset.copytarget,
+      inp = (c ? document.querySelector(c) : null);
+
+    // is element selectable?
+    if (inp && inp.select) {
+
+      // select text
+      inp.select();
+
+      try {
+        // copy text
+        document.execCommand('copy');
+        inp.blur();
+      }
+      catch (err) {
+        alert('please press Ctrl/Cmd+C to copy');
+      }
+
+    }
+
+  }
+
+})();
+
+</script>
+
+<!--CLICK TO COPY JAVASCRIPT END-->
+
+<table>
+<tr>
+<th>
+<h1>OMSA COMMANDS</h1>
+</th>
+</tr>
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Chassis Status:</b></label><br>
+<input type="text" id="website" value="omreport chassis" />
+<button class= "OrangeBtn" data-copytarget="#website">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Clear ESM Logs:</b></label><br>
+<input type="text" id="website8" value="omconfig system esmlog action=clear" />
+<button class= "OrangeBtn" data-copytarget="#website8">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Chassis Information:</b></label><br>
+<input type="text" id="website1" value="omreport chassis info" />
+<button class= "GreenBtn" data-copytarget="#website1">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Clear Alert Logs:</b></label><br>
+<input type="text" id="website9" value="omconfig system alertlog action=clear" />
+<button class= "GreenBtn" data-copytarget="#website9">Click to Copy</button>
+</li>
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>ROMB Battery:</b></label><br>
+<input type="text" id="website2" value="omreport storage battery" />
+<button class= "OrangeBtn" data-copytarget="#website2">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Restart OMSA Windows:</b></label><br>
+<input type="text" id="website21" value="net stop dcstor32 && net start dcstor32" />
+<button class= "OrangeBtn" data-copytarget="#website21">Click to Copy</button>
+</li>
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>BIOS Information:</b></label><br>
+<input type="text" id="website3" value="omreport chassis bios" />
+<button class= "GreenBtn" data-copytarget="#website3">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Memory | RAM:</b></label><br>
+<input type="text" id="website26" value="omreport chassis memory" />
+<button class= "GreenBtn" data-copytarget="#website26">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>PERC Information:</b></label><br>
+<input type="text" id="website4" value="omreport storage controller" />
+<button class= "OrangeBtn" data-copytarget="#website4">Click to Copy</button>
+</li>
+</ul>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Processors | CPU:</b></label><br>
+<input type="text" id="website27" value="omreport chassis processors" />
+<button class= "OrangeBtn" data-copytarget="#website27">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>RAID Information:</b></label><br>
+<input type="text" id="website5" value="omreport storage vdisk" />
+<button class= "GreenBtn" data-copytarget="#website5">Click to Copy</button>
+</li>
+</ul>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website23" style="color: lightgreen; font-size: 18px"><b>Restart OMSA Linux:</b></label><br>
+<input type="text" id="website31" value="srvadmin-services.sh restart" />
+<button class= "GreenBtn" data-copytarget="#website31">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Review ESM Logs:</b></label><br>
+<input type="text" id="website6" value="omreport system esmlog | more" />
+<button class= "OrangeBtn" data-copytarget="#website6">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website22" style="color: lightgreen; font-size: 18px"><b>Restart OMSA Linux Full Path:</b></label><br>
+<input type="text" id="website30" value="/opt/dell/srvadmin/sbin/srvadmin-services.sh restart" />
+<button class= "OrangeBtn" data-copytarget="#website30">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Review Alert Logs:</b></label><br>
+<input type="text" id="website7" value="omreport system alertlog | more" />
+<button class= "GreenBtn" data-copytarget="#website7">Click to Copy</button>
+</li>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Power Supplies:</b></label><br>
+<input type="text" id="website28" value="omreport chassis pwrsupplies" />
+<button class= "GreenBtn" data-copytarget="#website28">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Foreign Config:</b></label><br>
+<input type="text" id="CpyFC" value="omconfig storage controller action=clearforeignconfig controller=0" />
+<button class= "OrangeBtn" data-copytarget="#CpyFC">Click to Copy</button>
+</li>
+</ul>
+</td>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Assign Global Hot-Spare:</b></label><br>
+<input type="text" id="CpyGHS" value="omconfig storage pdisk action=assignglobalhotspare controller=x pdisk=x:x:x assign=yes" />
+<button class= "OrangeBtn" data-copytarget="#CpyGHS">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Clear Memory Errors:</b></label><br>
+<input type="text" id="CpyCM" value="dcicfg command=clearmemfailures" />
+<button class= "GreenBtn" data-copytarget="#CpyCM">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+</tr>
+
+
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website24" style="color: lightgreen; font-size: 18px"><b>Hard Drive Check:</b></label><br><br>
+<label for="website24" style="color: lightgreen; font-size: 15px">Controller 0:</label><br>
+<input type="text" id="website32" value="omreport storage pdisk controller=0 | more" />
+<button class= "GreenBtn" data-copytarget="#website32">Click to Copy</button>
+<br>
+<label for="website24" style="color: lightgreen; font-size: 15px">Controller 1:</label><br>
+<input type="text" id="website33" value="omreport storage pdisk controller=1 | more" />
+<button class= "OrangeBtn" data-copytarget="#website33">Click to Copy</button>
+</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
