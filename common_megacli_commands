@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>MegaCLI Commands</title>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+</head>
+<style>
+    body {
+	margin: auto;
+    background: black;
+    font-color: white;
+}
+h1 {
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: none;
+    width: 100%;
+	table-layout:fixed;
+}
+input {
+  width: 200px;
+  color: orange;
+  padding-right: 10px;
+  background-color: black;
+  border: none;
+}
+
+/*Copy Button Start*/
+
+.OrangeBtn {
+    background-color: orange; 
+    color: black; 
+    border: 2px solid orange;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-color: green;
+    border-radius: 100%;
+    margin-top: -15px;
+    margin-left: 50px;
+}
+
+.OrangeBtn:hover {
+    background-color: green;
+    color: white;
+    border: 2px solid green;
+
+}
+.GreenBtn {
+    background-color: green; 
+    color: white; 
+    border: 2px solid green;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 100%;
+    margin-left: 50px;
+    margin-top: -15px;
+}
+
+.GreenBtn:hover {
+    background-color: orange;
+    color: black;
+    border: 2px solid orange;
+
+}
+
+
+/*Copy Button End*/
+
+
+
+</style>
+<body>
+<!--CLICK TO COPY JAVASCRIPT START-->
+<script>
+
+(function() {
+
+  'use strict';
+
+  // click events
+  document.body.addEventListener('click', copy, true);
+
+  // event handler
+  function copy(e) {
+
+    // find target element
+    var
+      t = e.target,
+      c = t.dataset.copytarget,
+      inp = (c ? document.querySelector(c) : null);
+
+    // is element selectable?
+    if (inp && inp.select) {
+
+      // select text
+      inp.select();
+
+      try {
+        // copy text
+        document.execCommand('copy');
+        inp.blur();
+      }
+      catch (err) {
+        alert('please press Ctrl/Cmd+C to copy');
+      }
+
+    }
+
+  }
+
+})();
+
+</script>
+
+<!--CLICK TO COPY JAVASCRIPT END-->
+
+
+
+<table>
+<tr>
+<th>    
+<h1 align=center >MEGACLI COMMANDS</h1>
+</th>
+</tr>
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>LSI Card Information:</b></label><br>
+<input type="text" id="website10" value="/opt/MegaRAID/MegaCli/MegaCli -adpallinfo -a0 |grep -A3 'Product Name'" />
+<button class= "OrangeBtn" data-copytarget="#website10">Click to Copy</button>
+</li>
+</td>
+
+
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Memory Information:</b></label><br>
+<input type="text" id="website11" value="/opt/MegaRAID/MegaCli/MegaCli -AdpAllInfo -aAll |grep -A1 'Memory Correctable Errors'" />
+<button class= "OrangeBtn" data-copytarget="#website11">Click to Copy</button>
+</li>
+</td>
+
+</tr>
+<tr>
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>ROMB Battery:</b></label><br>
+<input type="text" id="website12" value="/opt/MegaRAID/MegaCli/MegaCli -AdpBbuCmd -a0|grep 'Active\|Battery State\|Charging Status\|Learn Cycle Requested\|Learn Cycle Active\|Battery Pack Missing\|Battery Replacement required\|Pack is about to fail & should be replaced\|Relative State of Charge\|Absolute State of charge\|Cycle Count\|Remaining Capacity\|Design Capacity'" />
+<button class= "GreenBtn" data-copytarget="#website12">Click to Copy</button>
+</li>
+</td>
+
+
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>RAID Information:</b></label><br>
+<input type="text" id="website13" value="/opt/MegaRAID/MegaCli/MegaCli -ldinfo -lall -a0|grep 'RAID\|State\|Number Of Drives'" />
+<button class= "GreenBtn" data-copytarget="#website13">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+</tr>
+<tr>
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Drive Information:</b></label><br>
+<input type="text" id="website14" value="/opt/MegaRAID/MegaCli/MegaCli -pdlist -a0|grep 'Slot\|Predictive Failure Count\|Firmware state'" />
+<button class= "OrangeBtn" data-copytarget="#website14">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Clear Foreign Config:</b></label><br>
+<input type="text" id="website14" value="/opt/MegaRAID/MegaCli/MegaCli -CfgForeign -Clear -aALL" />
+<button class= "OrangeBtn" data-copytarget="#website14">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Set Global Hots-Spare:</b></label><br>
+<input type="text" id="SetHsp" value="/opt/MegaRAID/MegaCli/MegaCli -PDHSP -Set -PhysDrv [E:S] -aN" />
+<button class= "GreenBtn" data-copytarget="#SetHsp">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>MegaRAID Log Dump:</b></label><br>
+<input type="text" id="MDump" value="/opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -aall|less" />
+<button class= "GreenBtn" data-copytarget="#MDump">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>LSI info and more:</b></label><br>
+<input type="text" id="LSIinf" value="/opt/MegaRAID/MegaCli/MegaCli -adpallinfo -a0" />
+<button class= "OrangeBtn" data-copytarget="#LSIinf">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Rebuild Progress:</b></label><br>
+<input type="text" id="RbldProg" value="/opt/MegaRAID/MegaCli/MegaCli -PDRbld -ShowProg -PhysDrv [E:S] -aAll" />
+<button class= "OrangeBtn" data-copytarget="#RbldProg">Click to Copy</button>
+</li>
+</ul>
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+<td>
+<ul style="list-style-type:none">
+<li>
+<label for="website" style="color: lightgreen; font-size: 18px"><b>Bad to Good Hard Drive:</b></label>
+<br>
+<br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 1:</label><br>
+<input type="text" id="website15" value="/opt/MegaRAID/MegaCli/MegaCli -EncInfo -aALL" />
+    <button class= "GreenBtn" data-copytarget="#website15">Click to Copy
+    </button>
+    <br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 2:</label><br>
+<input type="text" id="website16" value="/opt/MegaRAID/MegaCli/MegaCli -PDMakeGood -PhysDrv[E:S] -a0 -nolog" />
+    <button class= "OrangeBtn" data-copytarget="#website16">Click to Copy
+    </button>
+    <br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 3:</label><br>
+<input type="text" id="website17" value="/opt/MegaRAID/MegaCli/MegaCli -PDGetMissing -a0 -nolog" />
+    <button class= "GreenBtn" data-copytarget="#website17">Click to Copy
+    </button>
+    <br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 4:</label><br>
+<input type="text" id="website18" value="/opt/MegaRAID/MegaCli/MegaCli -PdReplaceMissing -PhysDrv[E:S] -array# -row# -a0 -nolog" />
+    <button class= "OrangeBtn" data-copytarget="#website18">Click to Copy
+    </button>
+    <br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 5:</label><br>
+<input type="text" id="website19" value="/opt/MegaRAID/MegaCli/MegaCli -PDRbld -Start -PhysDrv[E:S] -a0 -nolog" />
+    <button class= "GreenBtn" data-copytarget="#website19">Click to Copy
+    </button>
+    <br>
+<label for="website" style="color: lightgreen; font-size: 15px">Step 6:</label><br>
+<input type="text" id="website20" value="/opt/MegaRAID/MegaCli/MegaCli -PDRbld -ShowProg -PhysDrv [E:S] -a0 -nolog" />
+    <button class= "OrangeBtn" data-copytarget="#website20">Click to Copy
+    </button>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
+
