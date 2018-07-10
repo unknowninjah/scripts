@@ -1,0 +1,55 @@
+FormatTime, NOW,, yyyyMdd
+InputBox, UserInput, Cirrascale Warranty Check, Please enter a valid Cirrascale serial number, , 300, 145
+if ErrorLevel {
+return
+}
+
+
+if (StrLen(UserInput) < 11 ){
+	MsgBox ,16 , Cirrascale Warranty Check, %UserInput% is NOT a valid Cirrascale serial!
+	return 
+	}
+if (StrLen(UserInput) > 15 ){
+	MsgBox ,16 , Cirrascale Warranty Check, %UserInput% is NOT a valid Cirrascale serial!
+	return 
+	}
+
+Loop, read, serials.txt
+
+IfInString, A_LoopReadLine, %UserInput% 
+	{
+	StringSplit, Info, A_LoopReadLine, %A_Tab%
+	}
+
+StringSplit, NewExpDate, Info2, `/
+Expiration = %NewExpDate3%%NewExpDate2%%NewExpDate1%
+
+if (Expiration = "")
+	{
+	Loop, read, serials.txt
+IfNotInString, A_LoopReadLine, %UserInput% 
+	{
+	FileRead, data, serials.txt
+	IfNotInString, data, %UserInput%
+		{
+		MsgBox "%UserInput%" Does not exist.`nSerial has been logged for further investigation.
+		FileAppend , %UserInput%`n, serials_notfound.txt
+		return
+		}
+	}
+	}
+if (Expiration < NOW)
+	{
+		Results = %Info1% `nWarranty Expires: %Info2%
+		MsgBox %Results%
+		return
+	}
+		if (Expiration > NOW)
+		{
+			Results = %Info1% `nWarranty Expires: %Info2%
+			MsgBox %Results%
+			return
+		} 
+		
+
+
