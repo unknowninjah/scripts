@@ -1,0 +1,37 @@
+### Create Menu.sh file containing the following:
+#!/bin/sh
+PS3='Please enter your choice: '
+COLUMNS=12
+options=("FORMAT" "REBOOT" "QUIT")
+select opt in "${options[@]}"
+do
+case $opt in
+"FORMAT")
+start
+;;
+"REBOOT")
+reboot now;
+;;
+"QUIT")
+echo ""
+break
+;;
+*) echo invalid option;;
+esac
+done
+
+### Create hdd#.sh file for the ammount of drives needed:
+#!/bin/sh
+sg_format --format --size=512 /dev/sg16;
+
+
+### Create format.sh file containing the all of the hdd files created previously:
+#!/bin/sh
+./hdd1.sh &
+./hdd2.sh &
+./hdd3.sh &
+./hdd4.sh &
+./hdd5.sh &
+./hdd6.sh &
+./hdd7.sh &
+./hdd8.sh &
