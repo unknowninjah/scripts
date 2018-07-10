@@ -1,0 +1,59 @@
+<html>
+<style>
+body {
+background-color:black ;
+color:white;
+}
+::placeholder {
+color: #BDC3C7;
+font-style: italic;
+}
+input {
+text-align: center;
+border-radius: 7px;
+}
+.myser {
+width:300px;
+height:40px;
+font-size:25px;
+}
+button {
+border-radius: 7px;
+color:yellow;
+background-color:green;
+width:100px;
+height:40px;
+}
+button:hover { 
+    background-color: #F39C12;
+}
+p {
+font-size:24px;
+}
+</style>
+
+
+<body>
+<br>
+<br>
+<br>
+<h2 align=center id=outcome style=color:red;></h2>
+<div align=center>
+<p>Type "Something" in textbox...<br><br>
+<i>"Something" gets added to end of link and opened...</i>
+</p>
+<input class=myser type="text" id="mySomething"  placeholder="Something">
+<br><br>
+<button onclick="myFunction()">Search</button>
+</div>
+<script>
+function myFunction() {
+link = "http://SomeWebsiteSomewhere/" + document.getElementById("mySomething").value;;
+/** window.open(link); */
+document.getElementById("outcome").innerHTML = link;
+
+}
+</script>
+</body>
+</html>
+
